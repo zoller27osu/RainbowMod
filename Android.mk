@@ -14,8 +14,7 @@
 
 
 LOCAL_PATH := $(call my-dir)
-
-TARGET_ARCH_ABI := arm64-v8a
+TARGET_ARCH_ABI := $(APP_ABI)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := hook
@@ -26,9 +25,8 @@ include $(CLEAR_VARS)
 LOCAL_LDLIBS     := -llog
 LOCAL_CFLAGS     := -D"MOD_ID=\"RainbowMod\"" -D"VERSION=\"0.2.21\"" -I"C:/Program Files/Unity/Hub/Editor/2019.3.1f1/Editor/Data/il2cpp/libil2cpp"
 LOCAL_MODULE     := rainbowmod
-LOCAL_CPPFLAGS   := -std=c++2a
 LOCAL_C_INCLUDES := ./include ./src
-LOCAL_SRC_FILES  := $(call rwildcard,extern/beatsaber-hook/shared/inline-hook/,*.cpp) $(call rwildcard,extern/beatsaber-hook/shared/utils/,*.cpp) $(call rwildcard,extern/beatsaber-hook/shared/inline-hook/,*.c)
+LOCAL_SRC_FILES  := $(call rwildcard,extern/beatsaber-hook/shared/inline-hook/,*.cpp) $(call rwildcard,extern/beatsaber-hook/shared/utils/,*.cpp) $(call rwildcard,extern/beatsaber-hook/shared/inline-hook/,*.c) $(call rwildcard,extern/questui/,*.cpp)
 # In order to add configuration support to your project, uncomment the following line:
 LOCAL_SRC_FILES  += $(call rwildcard,extern/beatsaber-hook/shared/config/,*.cpp)
 # In order to add custom UI support to your project, uncomment the following line:
